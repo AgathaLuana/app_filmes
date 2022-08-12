@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 class FilmeModel {
-  int? id;
+  int id;
   String? posterPath;
   String title;
 
   FilmeModel({
-    this.id,
+    required this.id,
     this.posterPath,
     required this.title,
   });
