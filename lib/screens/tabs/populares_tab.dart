@@ -1,8 +1,8 @@
+import 'package:appfilmes/core/tmdb_constants.dart';
 import 'package:appfilmes/models/filme_model.dart';
 import 'package:appfilmes/services/movies_repository.dart';
-import 'package:appfilmes/style/colors.dart';
 import 'package:flutter/material.dart';
-
+import '../../core/style/app_colors.dart';
 import '../detalhes.dart';
 
 class FilmesPopulares extends StatefulWidget {
@@ -19,6 +19,7 @@ class _FilmesPopularesState extends State<FilmesPopulares> {
         future: MoviesRepository.getFilmesPopulares(),
         builder:
             (BuildContext context, AsyncSnapshot<List<FilmeModel>?> snapshot) {
+          //Se não tiver Data, recarregue
           if (!snapshot.hasData) {
             return const Center(
               child: CircularProgressIndicator(),
@@ -28,8 +29,8 @@ class _FilmesPopularesState extends State<FilmesPopulares> {
           if (snapshot.hasError) {
             return Center(child: Text(snapshot.error.toString()));
           }
-
-          List<FilmeModel> filmes = snapshot.data as List<FilmeModel>;
+          //Quando não for nulo, retorna o filme
+          List<FilmeModel> filmes = snapshot.data!;
 
           return _body(filmes);
         });
@@ -49,11 +50,16 @@ class _FilmesPopularesState extends State<FilmesPopulares> {
             children: [
               InkWell(
                 onTap: () {
-                  // MoviesRepository().getPopulares();
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Detalhes()),
+                    MaterialPageRoute(
+                      builder: (context) => Detalhes(
+                        id: filme.id,
+                      ),
+                    ),
                   );
+                  ////Checa Id do Filme
+                  //log(filme.id.toString());
                 },
                 child: Column(
                   children: [
@@ -63,7 +69,7 @@ class _FilmesPopularesState extends State<FilmesPopulares> {
                         width: 101,
                         height: 138,
                         child: Image.network(
-                          "https://image.tmdb.org/t/p/w220_and_h330_face${filme.posterPath!}",
+                          TmdbConstants.imageBase+filme.posterPath!,
                           fit: BoxFit.cover,
                         ),
                       ),

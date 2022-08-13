@@ -1,8 +1,10 @@
 import 'package:appfilmes/screens/tabs/maisAvaliados_tab.dart';
 import 'package:appfilmes/screens/tabs/populares_tab.dart';
 import 'package:appfilmes/style/colors.dart';
-import 'package:appfilmes/style/theme.dart';
 import 'package:flutter/material.dart';
+
+import '../core/style/app_colors.dart';
+import '../core/style/theme.dart';
 
 class CorpoProjeto extends StatefulWidget {
   const CorpoProjeto({Key? key}) : super(key: key);
@@ -22,45 +24,56 @@ class _CorpoProjetoState extends State<CorpoProjeto> {
       //debugShowMaterialGrid: true,
       theme: themeMode ? MegaCineTheme.dark : MegaCineTheme.ligth,
       home: DefaultTabController(
-        length: 2,
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text(
-              'Mega Cine',
-            ),
-            actions: [
-              Switch(
-                  value: themeMode,
-                  onChanged: (newValue) {
-                    setState(() {
-                      themeMode = !themeMode;
-                    });
-                  })
-            ],
-            bottom: const TabBar(
-              indicatorSize: TabBarIndicatorSize.tab,
-              labelStyle: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.w500,
-                //fontFamily: 'Poppins',
+        length: 2,        
+        child: SafeArea(
+          child: Scaffold(
+            appBar: AppBar(
+              flexibleSpace: const SizedBox(
+              width: 360,
+              height: 17,
+              child: DecoratedBox(
+                decoration: BoxDecoration(color: AppColors.laranja),
               ),
-              indicatorWeight: 0.1,
-              tabs: [
-                Tab(
-                  text: "Populares",
+            ),
+             
+              title: const Text(
+                
+                'Mega Cine',              
+              ),
+              actions: [
+                Switch(
+                    value: themeMode,
+                    onChanged: (newValue) {
+                      setState(() {
+                        themeMode = !themeMode;
+                      });
+                    })
+              ],
+              bottom: const TabBar(
+                indicatorSize: TabBarIndicatorSize.tab,
+                labelStyle: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'Poppins',
                 ),
-                Tab(text: 'Mais avaliados'),
-                //style: TextStyle(fontSize: 18.0,fontWeight: FontWeight.w500,
+                indicatorWeight: 0.1,
+                tabs: [
+                  Tab(
+                    text: "Populares",
+                  ),
+                  Tab(text: 'Mais avaliados'),
+                  //style: TextStyle(fontSize: 18.0,fontWeight: FontWeight.w500,
+                ],
+              ),
+            ),
+        
+            //Troca de telas
+            body: const TabBarView(
+              children: [
+                FilmesPopulares(),
+                MaisAvalidos(),
               ],
             ),
-          ),
-
-          //Troca de telas
-          body: const TabBarView(
-            children: [
-              FilmesPopulares(),
-              MaisAvalidos(),
-            ],
           ),
         ),
       ),
