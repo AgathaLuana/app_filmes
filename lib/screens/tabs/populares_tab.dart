@@ -78,20 +78,21 @@ class _FilmesPopularesState extends State<FilmesPopulares> {
                 ),
               ),
               SizedBox(
-                width: 101,
-                height: 33,
+                width: 100,
+                height: 40,
                 child: Text(
                   filme.title,
-                  textAlign: TextAlign.end,
+                  textAlign: TextAlign.left,
                   style: const TextStyle(
-                    //fontFamily: 'Poppins',
+                    fontFamily: 'Poppins',                    
                     color: AppColors.branco,
                     fontWeight: FontWeight.w400,
-                    fontSize: 14,
+                    fontSize: 14,                    
                   ),
                 ),
               ),
             ],
+
           );
         });
   }

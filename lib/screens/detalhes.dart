@@ -77,6 +77,7 @@ class _DetalhesState extends State<Detalhes> {
 
   Widget _body(DetalhesModel filme) {
     return ListView(
+      scrollDirection: Axis.vertical,     
       children: [
         Column(
           children: [
@@ -90,7 +91,7 @@ class _DetalhesState extends State<Detalhes> {
                 filme.title!,
                 textAlign: TextAlign.justify,
                 style: const TextStyle(
-                  //fontFamily: 'Poppins',
+                  fontFamily: 'Poppins',
                   color: AppColors.branco,
                   fontWeight: FontWeight.w700,
                   fontSize: 24,
@@ -107,7 +108,7 @@ class _DetalhesState extends State<Detalhes> {
                 'Sinopse',
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                  //fontFamily: 'Poppins',
+                  fontFamily: 'Poppins',
                   color: AppColors.laranja,
                   fontWeight: FontWeight.w700,
                   fontSize: 20,
@@ -117,19 +118,21 @@ class _DetalhesState extends State<Detalhes> {
             const SizedBox(
               height: 17,
             ),
-             SizedBox(
-              width: 328,
-              height: 180,
+             SizedBox(              
+              width: 328,              
               child: Text(
                 filme.overview!,
                 textAlign: TextAlign.justify,
                 style: const TextStyle(
-                  //fontFamily: 'Poppins',
+                  fontFamily: 'Poppins',
                   color: AppColors.branco,
                   fontWeight: FontWeight.w400,
-                  fontSize: 14,
+                  fontSize: 14,                  
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 17,
             ),
           ],
         ),

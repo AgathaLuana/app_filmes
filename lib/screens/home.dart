@@ -32,30 +32,35 @@ class _CorpoProjetoState extends State<CorpoProjeto> {
               width: 360,
               height: 17,
               child: DecoratedBox(
-                decoration: BoxDecoration(color: AppColors.laranja),
+                decoration: BoxDecoration(                  
+                  color: AppColors.laranja
+                ),
               ),
             ),
-             
+            
               title: const Text(
-                
                 'Mega Cine',              
               ),
+              //titleSpacing: 2,
               actions: [
-                Switch(
+                Switch(                  
                     value: themeMode,
                     onChanged: (newValue) {
                       setState(() {
                         themeMode = !themeMode;
                       });
-                    })
+                    },                    
+                    activeColor: AppColors.laranja,
+                    inactiveThumbColor: AppColors.corFundo,
+                    ),
               ],
               bottom: const TabBar(
                 indicatorSize: TabBarIndicatorSize.tab,
                 labelStyle: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.w500,
-                  fontFamily: 'Poppins',
-                ),
+          fontSize: 18.0,
+          fontWeight: FontWeight.w500,
+          fontFamily: 'Poppins',
+        ),
                 indicatorWeight: 0.1,
                 tabs: [
                   Tab(

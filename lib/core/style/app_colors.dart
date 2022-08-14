@@ -8,9 +8,6 @@ abstract class AppColors {
   static const Color branco = Color(0xFFFFFFFF);
   static const Color corSeta = Color(0xFF8D8B92);
   //cores para tema claro
-  static const Color corFundoClaro = Color(0xFFe5cbb4);
-  static const Color letraApagada = Color(0xFFffa590);
-  static const Color descricaoClaro = Color(0xFFe47f83);
-  static const Color tituloClaro = Color(0xFF4682B4);
-  static const Color azulShade = Color(0xFFF0F8FF);
+  static const Color corFundoClaro = Color(0xFFF0F8FF);
+  static const Color preto = Colors.black;
 }
