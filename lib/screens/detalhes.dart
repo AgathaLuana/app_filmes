@@ -44,7 +44,7 @@ class _DetalhesState extends State<Detalhes> {
     );
   }
 
-  Widget _scarffold(DetalhesModel filme) {
+  Widget _scarffold(DetalhesModel filme) {    
     return SafeArea(
       child: Scaffold(        
         backgroundColor: AppColors.corFundo,

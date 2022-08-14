@@ -1,6 +1,5 @@
 import 'package:appfilmes/screens/tabs/maisAvaliados_tab.dart';
 import 'package:appfilmes/screens/tabs/populares_tab.dart';
-import 'package:appfilmes/style/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../core/style/app_colors.dart';
@@ -24,43 +23,41 @@ class _CorpoProjetoState extends State<CorpoProjeto> {
       //debugShowMaterialGrid: true,
       theme: themeMode ? MegaCineTheme.dark : MegaCineTheme.ligth,
       home: DefaultTabController(
-        length: 2,        
+        length: 2,
         child: SafeArea(
           child: Scaffold(
             appBar: AppBar(
               flexibleSpace: const SizedBox(
-              width: 360,
-              height: 17,
-              child: DecoratedBox(
-                decoration: BoxDecoration(                  
-                  color: AppColors.laranja
+                height: 17,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(color: AppColors.laranja),
                 ),
               ),
-            ),
-            
-              title: const Text(
-                'Mega Cine',              
-              ),
-              //titleSpacing: 2,
+              
+              title: const SizedBox(                
+                child: Text(                  
+                  'Mega Cine',
+                ),
+              ),            
               actions: [
                 Switch(                  
-                    value: themeMode,
-                    onChanged: (newValue) {
-                      setState(() {
-                        themeMode = !themeMode;
-                      });
-                    },                    
-                    activeColor: AppColors.laranja,
-                    inactiveThumbColor: AppColors.corFundo,
-                    ),
+                  value: themeMode,
+                  onChanged: (newValue) {
+                    setState(() {
+                      themeMode = !themeMode;
+                    });
+                  },
+                  activeColor: AppColors.laranja,
+                  inactiveThumbColor: AppColors.corFundo,                  
+                ),
               ],
               bottom: const TabBar(
                 indicatorSize: TabBarIndicatorSize.tab,
                 labelStyle: TextStyle(
-          fontSize: 18.0,
-          fontWeight: FontWeight.w500,
-          fontFamily: 'Poppins',
-        ),
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'Poppins',
+                ),
                 indicatorWeight: 0.1,
                 tabs: [
                   Tab(
@@ -71,7 +68,7 @@ class _CorpoProjetoState extends State<CorpoProjeto> {
                 ],
               ),
             ),
-        
+
             //Troca de telas
             body: const TabBarView(
               children: [
